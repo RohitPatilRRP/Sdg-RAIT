@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2018 at 12:42 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Generation Time: Jun 06, 2018 at 11:25 AM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 5.5.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sdg_rait_exam_s/w`
+-- Database: `sdg_rait_exam_s_w`
 --
 
 -- --------------------------------------------------------
@@ -451,7 +449,8 @@ INSERT INTO `student_details_copy` (`Roll_no`, `Branch`, `Fullname`, `Pattern`) 
 
 CREATE TABLE `student_final_marksheet` (
   `seat` varchar(30) DEFAULT NULL,
-  `Roll_No` varchar(30) NOT NULL,
+  `Roll_no` varchar(30) DEFAULT NULL,
+  `Sem` varchar(30) DEFAULT NULL,
   `branch` varchar(30) DEFAULT NULL,
   `full_name` varchar(30) DEFAULT NULL,
   `pattern` varchar(30) DEFAULT NULL,
@@ -478,10 +477,34 @@ CREATE TABLE `student_final_marksheet` (
 -- Dumping data for table `student_final_marksheet`
 --
 
-INSERT INTO `student_final_marksheet` (`seat`, `Roll_No`, `branch`, `full_name`, `pattern`, `exam_yr`, `Sub_code`, `course_credits_th`, `course_credits_tw`, `grade_ese`, `grade_oralprac`, `grade_oral`, `grade_ia`, `grade_tw`, `overall_ese`, `overall_tw`, `creditsearned_th`, `creditsearned_tw`, `gradepoints_th`, `gradepoints_tw`, `cxg_th`, `cxg_tw`) VALUES
-('47', '00CE166', 'C', 'SUDRIK PRAMOD RAMESHRAO', '', 'NOV\'09', '123456', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'),
-('6506', '03IT2059', 'T', 'RANAWARE SATYAJIT SHIVAJIRAO', '', 'NOV-13', '123456', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('552', '04CE1055', 'C', 'MHATRE MAYURESH MADHUKAR', '', 'MAY-15', '123456', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `student_final_marksheet` (`seat`, `Roll_no`, `Sem`, `branch`, `full_name`, `pattern`, `exam_yr`, `Sub_code`, `course_credits_th`, `course_credits_tw`, `grade_ese`, `grade_oralprac`, `grade_oral`, `grade_ia`, `grade_tw`, `overall_ese`, `overall_tw`, `creditsearned_th`, `creditsearned_tw`, `gradepoints_th`, `gradepoints_tw`, `cxg_th`, `cxg_tw`) VALUES
+('47', NULL, NULL, 'C', 'SUDRIK PRAMOD RAMESHRAO', '', 'NOV''09', '123456', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'),
+('6506', NULL, NULL, 'T', 'RANAWARE SATYAJIT SHIVAJIRAO', '', 'NOV-13', '123456', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('552', NULL, NULL, 'C', 'MHATRE MAYURESH MADHUKAR', '', 'MAY-15', '123456', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('seat', NULL, 'Sem', 'branch', 'full_name', 'pattern', 'exam_yr', 'Sub_code', 'course_credits_th', 'course_credits_tw', 'grade_ese', 'grade_oralprac', 'grade_oral', 'grade_ia', 'grade_tw', 'overall_ese', 'overall_tw', 'creditsearned_th', 'creditsearned_tw', 'gradepoints_th', 'gradepoints_tw', 'cxg_th', 'cxg_tw'),
+('seat', 'Roll_No', 'Sem', 'branch', 'full_name', 'pattern', 'exam_yr', 'Sub_code', 'course_credits_th', 'course_credits_tw', 'grade_ese', 'grade_oralprac', 'grade_oral', 'grade_ia', 'grade_tw', 'overall_ese', 'overall_tw', 'creditsearned_th', 'creditsearned_tw', 'gradepoints_th', 'gradepoints_tw', 'cxg_th', 'cxg_tw'),
+('8067', '00CE166', '6', 'C', 'SUDRIK PRAMOD RAMESHRAO', '', 'MAY-10', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', '0', '0', '0', '0', '0', '0'),
+('8062', '00CE194', '6', 'C', 'MALGAONKAR JAYESH PANDURANG', '', 'MAY-10', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('26', '00CE224', '6', 'C', 'KHOBRAGADE NITIN ARUN', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('1072', '00EE128', '5', 'E', 'THANIYAT ASHISH MURALI', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('1159', '00IT162', '5', 'T', 'SAWANT TUSHAR ANIL', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('6057', '01EE024', '5', 'E', 'KANINDE SATYASHIL GOVIND', '', 'MAY-10', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('49270642', '01ET126', '7', 'X', 'SURI ASEEM VINOD', '', 'NOV-15', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('1103', '01IN010', '3', 'I', 'GAVANDI TEJAS SUHAS', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('1120', '01IN021', '5', 'I', 'NINGAVALE ROHIT ANANT', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('6', '02CE1005', '6', 'C', 'BHERE TUSHAR  KANHU', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('11', '02CE1010', '5', 'C', 'DIXIT ABHIJIT BRAHMKUMAR', '', 'MAY-11', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('8067', '00CE166', '6', 'C', 'SUDRIK PRAMOD RAMESHRAO', '', 'MAY-10', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', '0', '0', '0', '0', '0', '0'),
+('8062', '00CE194', '6', 'C', 'MALGAONKAR JAYESH PANDURANG', '', 'MAY-10', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('26', '00CE224', '6', 'C', 'KHOBRAGADE NITIN ARUN', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('1072', '00EE128', '5', 'E', 'THANIYAT ASHISH MURALI', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('1159', '00IT162', '5', 'T', 'SAWANT TUSHAR ANIL', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('6057', '01EE024', '5', 'E', 'KANINDE SATYASHIL GOVIND', '', 'MAY-10', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('49270642', '01ET126', '7', 'X', 'SURI ASEEM VINOD', '', 'NOV-15', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('1103', '01IN010', '3', 'I', 'GAVANDI TEJAS SUHAS', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('1120', '01IN021', '5', 'I', 'NINGAVALE ROHIT ANANT', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('6', '02CE1005', '6', 'C', 'BHERE TUSHAR  KANHU', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('11', '02CE1010', '5', 'C', 'DIXIT ABHIJIT BRAHMKUMAR', '', 'MAY-11', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -650,12 +673,6 @@ ALTER TABLE `student_details`
   ADD PRIMARY KEY (`Roll_no`,`Branch`);
 
 --
--- Indexes for table `student_final_marksheet`
---
-ALTER TABLE `student_final_marksheet`
-  ADD PRIMARY KEY (`Roll_No`);
-
---
 -- Indexes for table `student_marks`
 --
 ALTER TABLE `student_marks`
@@ -678,7 +695,6 @@ ALTER TABLE `student_theory_mask`
 --
 ALTER TABLE `student_theory_unmask`
   ADD PRIMARY KEY (`code`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
