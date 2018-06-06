@@ -129,38 +129,38 @@ Pattern: <input type="text" name="pattern" id="pattern"><br/>
 
 <div>
 <?php
-if(isset($_POST('LOGIN'))){
-$q = $_POST['sem'];
-$z = $_POST['pattern'];
-$b= $_POST['branch'];
-$s = $_POST['seatno'];
-$sel=mysqli_query($db,"select * from course_table_rev where sem='$q' and pattern='$z' and branch='$b'") or die(mysqli_error($db)); ;
-if(mysqli_num_rows($sel)>0){
-    echo 
-"<table width=\"600\" border=\"1\" cellpadding=\"10\" cellspacing=\"1\">
-<tr>
-<th>Branch</th>
-<th>Semester</th>
-<th>Pattern</th>
-<th>Subject</th>
-</tr>";
-while ($arr=mysqli_fetch_array($sel)){
-echo "<tr>";
-echo "<td><a href=\"index.php\">".$arr['branch']."</a></td>";
-echo "<td>".$arr['sem']."</td>";
-echo "<td>".$arr['pattern']."</td>";
-echo "<td>".$arr['subject']."</td>";
-echo "</tr>";
-}
-$_SESSION['seatno']=$s;
-$_SESSION['branch']=$b;
-$_SESSION['sem']=$q;
-$_SESSION['pattern']=$z;
-}
-else
-{
-    echo "<h2>No Results Found</h2>";
-}
+if(isset($_POST['LOGIN'])){
+	$q = $_POST['sem'];
+	$z = $_POST['pattern'];
+	$b= $_POST['branch'];
+	$s = $_POST['seatno'];
+	$sel=mysqli_query($db,"select * from course_table_rev where sem='$q' and pattern='$z' and branch='$b'") or die(mysqli_error($db)); ;
+		if(mysqli_num_rows($sel)>0){
+		    echo 
+		"<table width=\"600\" border=\"1\" cellpadding=\"10\" cellspacing=\"1\">
+		<tr>
+		<th>Branch</th>
+		<th>Semester</th>
+		<th>Pattern</th>
+		<th>Subject</th>
+		</tr>";
+		while ($arr=mysqli_fetch_array($sel)){
+		echo "<tr>";
+		echo "<td><a href=\"index.php\">".$arr['branch']."</a></td>";
+		echo "<td>".$arr['sem']."</td>";
+		echo "<td>".$arr['pattern']."</td>";
+		echo "<td>".$arr['subject']."</td>";
+		echo "</tr>";
+		}
+		$_SESSION['seatno']=$s;
+		$_SESSION['branch']=$b;
+		$_SESSION['sem']=$q;
+		$_SESSION['pattern']=$z;
+		}
+		else
+		{
+		    echo "<h2>No Results Found</h2>";
+		}
 }
 ?>
 </div>
