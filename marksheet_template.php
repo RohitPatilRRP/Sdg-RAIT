@@ -1,15 +1,20 @@
 <?php
 session_start();
 include "connect.php";
-$q=$_SESSION['seatno'];
-$z=$_SESSION['branch'];
-$b=$_SESSION['sem'];
-$s=$_SESSION['pattern'];
-$abc="select * from student_final_marksheet where seat=$q";
-$query_student = mysqli_query($db,$abc) or die(mysqli_error($db)); ;
+$s=$_SESSION['seatno'];
+$b=$_SESSION['branch'];
+$q=$_SESSION['sem'];
+$z=$_SESSION['pattern'];
+$r=$_SESSION['rollno'];
 
-echo print_r($_SESSION);
-$query_course = mysqli_query($db,"select * from course_table_rev where sem='$b' and pattern='$s' and branch='$z'") or die(mysqli_error($db)); ;
+// $abc="select * from student_final_marksheet where seat=$q and branch=$z";
+// $query_student = mysqli_query($db,$abc) or die(mysqli_error($db)); ;
+
+$query_course = mysqli_query($db,"select * from course_table_rev where sem='$q' and pattern='$z' and branch='$b'");
+
+$query_student = mysqli_query($db,"select * from student_final_marksheet where seat='$s' and branch='$b'") ;
+
+// echo print_r($query_student);
 ?>
 <!doctype html>
 <html lang="en">
@@ -74,17 +79,17 @@ $query_course = mysqli_query($db,"select * from course_table_rev where sem='$b' 
    <div style="margin-left: 3%;">
 <?php
 
-$row = mysqli_fetch_array($query_student);
-echo $row;
+// $row = mysqli_fetch_array($query_student);
+// echo $row;
 //$count = mysqli_num_rows($row);
 //echo $count;
 while($row = mysqli_fetch_array($query_student)){
       ?>
-  
+      <pre>
             Name:<?php echo $row['full_name']; ?>         
-            Examination:<?php echo $row['pattern'];  ?> <br>
-            Held in: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             with Seat No:<?php echo $_SESSION['seatno']; ?><br>
-          
+            Examination:<?php echo $_SESSION['pattern'];  ?>
+            Held in: <?php echo $row['exam_yr']; ?>              with Seat No:<?php echo $_SESSION['seatno']; ?><br>
+          </pre>
           </div>
           <div>
        <?php 
@@ -161,7 +166,86 @@ while($row = mysqli_fetch_array($query_student)){
       <td>&nbsp;</td>
     </tr>
      
-<tr>
+
+   
+    </div>
+          
+            
+        </div>
+
+  </tbody>
+</table>
+
+</td>
+
+  <td >
+    <pre>
+      % of Marks Obtained  Letter Grade  Grade Point  Performance
+
+      80  and  above             O             10     Outstanding 
+      75.00 - 79.99              A              9     Excellent
+      70.00 - 74.99              B              8     Very Good
+      60.00 - 69.99              C              7     Good
+      50.00 - 59.99              D              6     Fair
+      45.00 - 49.99              E              5     Average
+      40.00 - 44.99              P              4     Pass
+
+      CGPI               Eqivalent % of marks
+
+      6.75                60%
+      7.25                65%
+      7.75                70%
+      8.25                75%
+
+    </pre>
+  </td>
+</tr>
+      
+  </table>      
+    
+<pre>
+
+College Roll No.                       Remark:                    SGPI:                   CGPI:
+
+ESE-End Sem Exam, OP-Oral & Practical, OR-Oral, IA-Internal Assesment, TH-Theory, TW-Termwork, SGPI- Σ(CxGy Σ(C))
+SGPI-Semester Grade Performance Index, CGPI-Cummulative Grade Performance Index, -- Not Applicable, P-Practical
+
+</pre>
+
+
+                <input type="button" value="Print" class="btn" onclick="PrintDoc()"/>
+
+
+                <input type="button" value="Print Preview" class="btn" onclick="PrintPreview()"/>
+
+          
+
+ 
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="Bootstrap/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <a href="destroy.php">clear</a>
+  </body>
+</html>
+
+     <!-- <?php
+             echo  '<pre>';
+     print_r($_SESSION['seatno']);
+     echo '</pre>'; ?>  -->
+
+
+
+
+
+
+
+
+
+<!-- 
+     <tr>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
@@ -268,71 +352,4 @@ while($row = mysqli_fetch_array($query_student)){
       <td>&nbsp;</td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
-    </tr>
-   
-    </div>
-          
-            
-        </div>
-
-  </tbody>
-</table>
-
-</td>
-
-  <td >
-    <pre>
-      % of Marks Obtained  Letter Grade  Grade Point  Performance
-
-      80  and  above             O             10     Outstanding 
-      75.00 - 79.99              A              9     Excellent
-      70.00 - 74.99              B              8     Very Good
-      60.00 - 69.99              C              7     Good
-      50.00 - 59.99              D              6     Fair
-      45.00 - 49.99              E              5     Average
-      40.00 - 44.99              P              4     Pass
-
-      CGPI               Eqivalent % of marks
-
-      6.75                60%
-      7.25                65%
-      7.75                70%
-      8.25                75%
-
-    </pre>
-  </td>
-</tr>
-      
-  </table>      
-    
-<pre>
-
-College Roll No.                       Remark:                    SGPI:                   CGPI:
-
-ESE-End Sem Exam, OP-Oral & Practical, OR-Oral, IA-Internal Assesment, TH-Theory, TW-Termwork, SGPI- Σ(CxGy Σ(C))
-SGPI-Semester Grade Performance Index, CGPI-Cummulative Grade Performance Index, -- Not Applicable, P-Practical
-
-</pre>
-
-
-                <input type="button" value="Print" class="btn" onclick="PrintDoc()"/>
-
-
-                <input type="button" value="Print Preview" class="btn" onclick="PrintPreview()"/>
-
-          
-
- 
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="Bootstrap/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-  </body>
-</html>
-
-     <!-- <?php
-             echo  '<pre>';
-     print_r($_SESSION['seatno']);
-     echo '</pre>'; ?>  -->
+    </tr> -->

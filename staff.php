@@ -17,10 +17,6 @@ var sem=document.myform.sem.value;
 
 //var password=document.myform.password.value;  
   
-if (rollno==null || rollno.length!=8){  
-  alert("Roll no. must be of 8 characters");  
-  return false;  
-}
 if (branch==null || branch==""){  
   alert("Branch must not be blank");  
   return false;  
@@ -114,7 +110,7 @@ div {
 
 <div class="center">
   <form name="myform" method="POST" onsubmit="return validateform()" >  
-Enter Roll No: <input type="text" name="rollno"><br/>  
+Enter Roll No: <input type="text" name="rollno" id="rollno"><br/>  
 Seat Number: <input type="text" name="seatno" id="seatno"><br/>
 Branch: <input type="text" name="branch" id="branch" ><br/>  
 Semester:  <input type="text" name="sem" id="sem"><br/>  
@@ -126,6 +122,7 @@ Pattern: <input type="text" name="pattern" id="pattern"><br/>
 <div>
 <?php
 if(isset($_POST['LOGIN'])){
+  $r=$_POST['rollno'];
 	$q = $_POST['sem'];
 	$z = $_POST['pattern'];
 	$b= $_POST['branch'];
@@ -152,7 +149,7 @@ if(isset($_POST['LOGIN'])){
 		$_SESSION['branch']=$b;
 		$_SESSION['sem']=$q;
 		$_SESSION['pattern']=$z;
-
+    $_SESSION['rollno']=$r;
 	header("Location: marksheet_template.php");
 		}
 		else
