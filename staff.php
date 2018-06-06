@@ -156,6 +156,7 @@ if(isset($_POST['LOGIN'])){
 		$_SESSION['branch']=$b;
 		$_SESSION['sem']=$q;
 		$_SESSION['pattern']=$z;
+		header("Location: marksheet_template.php");
 		}
 		else
 		{
