@@ -1,0 +1,50 @@
+<?php
+
+if(isset($_POST['submit']))
+{
+$mysqli=New MySQLi("localhost","root","","details");
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+//else echo'connected';
+
+$search=$_POST['search'];
+
+
+$result=$mysqli->query("SELECT * FROM cs3 WHERE branch && sem='$search'");
+
+$row_cnt = $result->num_rows;
+
+    printf("Result set has %d rows.\n", $row_cnt);
+
+	while( $row = mysqli_fetch_assoc( $result ) )
+	//while($row=$result->fetch_assoc())
+	{
+		$branch=$row['branch'];
+		$sem=$row['sem'];
+		$subname=$row['SUB_NAME'];
+		
+		$output="branch:$branch<br/> sub1:$sub1<br/> sub2=$sub2 <br/> sub3=$sub3";
+		
+	}
+//}
+}
+
+?>
+
+<form method="POST">
+<input type="text" name="search"/>
+<input type="submit" name="submit" value="search"/><br/>
+<?php
+echo $output;
+?>
+</form>
+
+
+
+//<td>Exam type: </td>
+<select name="Exam type">
+  <option value="Select">Select</option>
+  <option value="CBSGS">CBSGS</option>
+  <option value="CBGCS">CBGCS</option> <br/>
