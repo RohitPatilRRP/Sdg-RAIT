@@ -1,3 +1,14 @@
+<?php
+session_start();
+include "connect.php";
+$q=$_SESSION['seatno'];
+$z=$_SESSION['branch'];
+$b=$_SESSION['sem'];
+$s=$_SESSION['pattern'];
+
+$query_student = mysqli_query($db,"select * from student_final_marksheet where seat=$q") or die(mysqli_error($db)); ;
+$query_course = mysqli_query($db,"select * from course_table_rev where sem=$b and pattern = '$s'") or die(mysqli_error($db)); ;
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -57,13 +68,16 @@
   </head>
   <body id="printarea">
     <div style="font-size: 20px;">
-   <b><center>GRADE CARD</center></b></div>
+   <b><center>GRADE CARD</center></b></div>  
    <div style="margin-left: 3%;">
   
-            Name:<br>              
-            Examination: <br>
+            Name:<?php echo $_SESSION['pattern'];  ?>         
+            Examination:<?php echo $_SESSION['pattern'];  ?> <br>
             Held in: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             with Seat No:<br>
           
+          </div>
+          <div>
+       
           </div>
     <table style="margin-bottom: 10%;">
      
@@ -296,3 +310,8 @@ SGPI-Semester Grade Performance Index, CGPI-Cummulative Grade Performance Index,
     <script src="Bootstrap/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
   </body>
 </html>
+
+     <!-- <?php
+             echo  '<pre>';
+     print_r($_SESSION['seatno']);
+     echo '</pre>'; ?>  -->

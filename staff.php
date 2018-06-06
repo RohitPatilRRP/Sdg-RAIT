@@ -1,9 +1,5 @@
 <?php
-   define('DB_SERVER', 'localhost');
-   define('DB_USERNAME', 'root');
-   define('DB_PASSWORD', '');
-   define('DB_DATABASE', 'sdg_rait_exam_s_w');
-   $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+include "connect.php";
 session_start();
 ?>
 
@@ -156,14 +152,15 @@ if(isset($_POST['LOGIN'])){
 		$_SESSION['branch']=$b;
 		$_SESSION['sem']=$q;
 		$_SESSION['pattern']=$z;
-		header("Location: marksheet_template.php");
+
+	header("Location: marksheet_template.php");
 		}
 		else
 		{
 		    echo "<h2>No Results Found</h2>";
 		}
 }
-?>
+?>    
 </div>
 </body>
 </html>
