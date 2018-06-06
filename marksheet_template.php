@@ -7,7 +7,7 @@ $b=$_SESSION['sem'];
 $s=$_SESSION['pattern'];
 
 $query_student = mysqli_query($db,"select * from student_final_marksheet where seat=$q") or die(mysqli_error($db)); ;
-$query_course = mysqli_query($db,"select * from course_table_rev where sem=$b and pattern = '$s'") or die(mysqli_error($db)); ;
+//$query_course = mysqli_query($db,"select * from course_table_rev where sem='$b' and pattern='$s'") or die(mysqli_error($db)); ;
 ?>
 <!doctype html>
 <html lang="en">
@@ -70,14 +70,31 @@ $query_course = mysqli_query($db,"select * from course_table_rev where sem=$b an
     <div style="font-size: 20px;">
    <b><center>GRADE CARD</center></b></div>  
    <div style="margin-left: 3%;">
+<?php
+while($row = mysqli_fetch_array($query_student)){
+      ?>
   
-            Name:<?php echo $_SESSION['pattern'];  ?>         
+            Name:<?php echo $row['full_name']; ?>         
             Examination:<?php echo $_SESSION['pattern'];  ?> <br>
-            Held in: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             with Seat No:<br>
+            Held in: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;             with Seat No:<?php echo $_SESSION['seatno']; ?><br>
           
           </div>
           <div>
-       
+       <?php 
+    }
+    $_SESSION['seatno']=$s;
+    $_SESSION['branch']=$b;
+    $_SESSION['sem']=$q;
+    $_SESSION['pattern']=$z;
+
+ // header("Location: marksheet_template.php");
+    //}
+    // else
+    // {
+    //     echo "<h2>No Results Found</h2>";
+    // }
+
+    ?>
           </div>
     <table style="margin-bottom: 10%;">
      
