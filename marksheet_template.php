@@ -29,6 +29,7 @@ $query_student = mysqli_query($db,"select * from student_final_marksheet where s
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/Print.css">
     <title>Exam result</title>
+
     <script type="text/javascript">
 
 /*--This JavaScript method for Print command--*/
@@ -72,6 +73,9 @@ $query_student = mysqli_query($db,"select * from student_final_marksheet where s
     }
 
 </script>
+
+
+    
   </head>
   <body id="printarea">
     <div style="font-size: 20px;">
@@ -79,8 +83,8 @@ $query_student = mysqli_query($db,"select * from student_final_marksheet where s
    <div style="margin-left: 3%;">
 <?php
 
-// $row = mysqli_fetch_array($query_student);
-// echo $row;
+//$row = mysqli_fetch_array($query_student);
+//cho $row['course_credits_th'];
 //$count = mysqli_num_rows($row);
 //echo $count;
 while($row = mysqli_fetch_array($query_student)){
@@ -94,18 +98,12 @@ while($row = mysqli_fetch_array($query_student)){
           <div>
        <?php 
     }
-
-
- // header("Location: marksheet_template.php");
-    //}
-    // else
-    // {
-    //     echo "<h2>No Results Found</h2>";
-    // }
-
     ?>
+
+
           </div>
-    <table style="margin-bottom: 10%;">
+
+    <table>
      
     <tr>
       <td>
@@ -113,7 +111,7 @@ while($row = mysqli_fetch_array($query_student)){
             <!-- <div class="col-1"></div> -->
             <!-- <div class="col"> -->
 
-    <table class="table" width="698"cellspacing="0"cellpadding="5" border="01" style="margin-top: 5%;">
+    <table class="table" width="698"cellspacing="0"cellpadding="5" border="01" ">
             
             <tbody>
      
@@ -147,32 +145,34 @@ while($row = mysqli_fetch_array($query_student)){
       <td colspan="1">ESE</td>
       <td colspan="1">TW</td>
     </tr>
+
+
+    
+
+      <?php
+    while( ($row = mysqli_fetch_array($query_student)) || ($course_row = mysqli_fetch_array($query_course)) ){
+
+      ?>
     <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+    <td><?php echo $course_row['subject']; ?></td>
+    <td><?php echo $course_row['coursecredits_th'];?></td>
+    <td><?php echo $course_row['coursecredits_tw']?></td>
+    <td><?php echo $row['grade_ese']; ?></td>
+    <td><?php echo $row['grade_oralprac']; ?> </td>
+    <td><?php echo $row['grade_oral']; ?> </td>
+    <td><?php echo $row['grade_ia']; ?> </td>
+    <td><?php echo $row['grade_tw']; ?> </td>
+    <td><?php echo $row['overall_ese']; ?> </td>
+    <td><?php echo $row['overall_tw']; ?> </td>
+    <td><?php echo $row['creditsearned_th']; ?> </td>
+    <td><?php echo $row['creditsearned_tw']; ?> </td>
+    <td><?php echo $row['gradepoints_th']; ?> </td>
+    <td><?php echo $row['gradepoints_tw']; ?> </td>
+    <td><?php echo $row['cxg_th']; ?> </td>
+    <td><?php echo $row['cxg_tw']; ?> </td> 
     </tr>
-     
-
-   
-    </div>
-          
-            
-        </div>
-
+    
+   <?php }   ?>
   </tbody>
 </table>
 
@@ -209,7 +209,6 @@ College Roll No.                       Remark:                    SGPI:         
 
 ESE-End Sem Exam, OP-Oral & Practical, OR-Oral, IA-Internal Assesment, TH-Theory, TW-Termwork, SGPI- Σ(CxGy Σ(C))
 SGPI-Semester Grade Performance Index, CGPI-Cummulative Grade Performance Index, -- Not Applicable, P-Practical
-
 </pre>
 
 
@@ -218,7 +217,7 @@ SGPI-Semester Grade Performance Index, CGPI-Cummulative Grade Performance Index,
 
                 <input type="button" value="Print Preview" class="btn" onclick="PrintPreview()"/>
 
-          
+                <input type="button" value="Logout" class="btn" onclick="window.location='http://localhost/AEM/Sdg-RAIT/staff.php'"/>
 
  
 
@@ -227,129 +226,12 @@ SGPI-Semester Grade Performance Index, CGPI-Cummulative Grade Performance Index,
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="Bootstrap/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-    <a href="destroy.php">clear</a>
+    <!-- <a href="destroy.php">clear</a>
+ -->
   </body>
 </html>
 
-     <!-- <?php
-             echo  '<pre>';
-     print_r($_SESSION['seatno']);
-     echo '</pre>'; ?>  -->
 
 
 
 
-
-
-
-
-
-<!-- 
-     <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</t>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr> -->

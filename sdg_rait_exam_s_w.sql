@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2018 at 11:25 AM
--- Server version: 10.1.9-MariaDB
--- PHP Version: 5.5.30
+-- Generation Time: Jun 07, 2018 at 05:54 PM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -431,15 +433,15 @@ CREATE TABLE `student_details_copy` (
 --
 
 INSERT INTO `student_details_copy` (`Roll_no`, `Branch`, `Fullname`, `Pattern`) VALUES
-('00CE166', 'C', 'SUDRIK PRAMOD RAMESHRAO', '0'),
-('00CE166', 'C', 'SUDRIK PRAMOD RAMESHRAO', ''),
-('00CE166', 'C', 'SUDRIK PRAMOD RAMESHRAO', ''),
-('00CE166', 'C', 'SUDRIK PRAMOD RAMESHRAO', ''),
-('00CE166', 'C', 'SUDRIK PRAMOD RAMESHRAO', ''),
-('02CE1005', 'C', 'BHERE TUSHAR  KANHU', ''),
-('02CE1010', 'C', 'DIXIT ABHIJIT BRAHMKUMAR', ''),
-('02CE1010', 'C', 'DIXIT ABHIJIT BRAHMKUMAR', ''),
-('02CE1010', 'C', 'DIXIT ABHIJIT BRAHMKUMAR', '');
+('00CE166', 'CE', 'SUDRIK PRAMOD RAMESHRAO', '0'),
+('00CE166', 'CE', 'SUDRIK PRAMOD RAMESHRAO', ''),
+('00CE166', 'CE', 'SUDRIK PRAMOD RAMESHRAO', ''),
+('00CE166', 'CE', 'SUDRIK PRAMOD RAMESHRAO', ''),
+('00CE166', 'CE', 'SUDRIK PRAMOD RAMESHRAO', ''),
+('02CE1005', 'CE', 'BHERE TUSHAR  KANHU', ''),
+('02CE1010', 'CE', 'DIXIT ABHIJIT BRAHMKUMAR', ''),
+('02CE1010', 'CE', 'DIXIT ABHIJIT BRAHMKUMAR', ''),
+('02CE1010', 'CE', 'DIXIT ABHIJIT BRAHMKUMAR', '');
 
 -- --------------------------------------------------------
 
@@ -478,33 +480,22 @@ CREATE TABLE `student_final_marksheet` (
 --
 
 INSERT INTO `student_final_marksheet` (`seat`, `Roll_no`, `Sem`, `branch`, `full_name`, `pattern`, `exam_yr`, `Sub_code`, `course_credits_th`, `course_credits_tw`, `grade_ese`, `grade_oralprac`, `grade_oral`, `grade_ia`, `grade_tw`, `overall_ese`, `overall_tw`, `creditsearned_th`, `creditsearned_tw`, `gradepoints_th`, `gradepoints_tw`, `cxg_th`, `cxg_tw`) VALUES
-('47', NULL, NULL, 'C', 'SUDRIK PRAMOD RAMESHRAO', '', 'NOV''09', '123456', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'),
-('6506', NULL, NULL, 'T', 'RANAWARE SATYAJIT SHIVAJIRAO', '', 'NOV-13', '123456', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('552', NULL, NULL, 'C', 'MHATRE MAYURESH MADHUKAR', '', 'MAY-15', '123456', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('seat', NULL, 'Sem', 'branch', 'full_name', 'pattern', 'exam_yr', 'Sub_code', 'course_credits_th', 'course_credits_tw', 'grade_ese', 'grade_oralprac', 'grade_oral', 'grade_ia', 'grade_tw', 'overall_ese', 'overall_tw', 'creditsearned_th', 'creditsearned_tw', 'gradepoints_th', 'gradepoints_tw', 'cxg_th', 'cxg_tw'),
-('seat', 'Roll_No', 'Sem', 'branch', 'full_name', 'pattern', 'exam_yr', 'Sub_code', 'course_credits_th', 'course_credits_tw', 'grade_ese', 'grade_oralprac', 'grade_oral', 'grade_ia', 'grade_tw', 'overall_ese', 'overall_tw', 'creditsearned_th', 'creditsearned_tw', 'gradepoints_th', 'gradepoints_tw', 'cxg_th', 'cxg_tw'),
-('8067', '00CE166', '6', 'C', 'SUDRIK PRAMOD RAMESHRAO', '', 'MAY-10', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', '0', '0', '0', '0', '0', '0'),
-('8062', '00CE194', '6', 'C', 'MALGAONKAR JAYESH PANDURANG', '', 'MAY-10', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('26', '00CE224', '6', 'C', 'KHOBRAGADE NITIN ARUN', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('1072', '00EE128', '5', 'E', 'THANIYAT ASHISH MURALI', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('1159', '00IT162', '5', 'T', 'SAWANT TUSHAR ANIL', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('6057', '01EE024', '5', 'E', 'KANINDE SATYASHIL GOVIND', '', 'MAY-10', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('49270642', '01ET126', '7', 'X', 'SURI ASEEM VINOD', '', 'NOV-15', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('1103', '01IN010', '3', 'I', 'GAVANDI TEJAS SUHAS', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('1120', '01IN021', '5', 'I', 'NINGAVALE ROHIT ANANT', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('6', '02CE1005', '6', 'C', 'BHERE TUSHAR  KANHU', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('11', '02CE1010', '5', 'C', 'DIXIT ABHIJIT BRAHMKUMAR', '', 'MAY-11', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('8067', '00CE166', '6', 'C', 'SUDRIK PRAMOD RAMESHRAO', '', 'MAY-10', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', '0', '0', '0', '0', '0', '0'),
-('8062', '00CE194', '6', 'C', 'MALGAONKAR JAYESH PANDURANG', '', 'MAY-10', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('26', '00CE224', '6', 'C', 'KHOBRAGADE NITIN ARUN', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('1072', '00EE128', '5', 'E', 'THANIYAT ASHISH MURALI', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('1159', '00IT162', '5', 'T', 'SAWANT TUSHAR ANIL', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('6057', '01EE024', '5', 'E', 'KANINDE SATYASHIL GOVIND', '', 'MAY-10', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('49270642', '01ET126', '7', 'X', 'SURI ASEEM VINOD', '', 'NOV-15', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('1103', '01IN010', '3', 'I', 'GAVANDI TEJAS SUHAS', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('1120', '01IN021', '5', 'I', 'NINGAVALE ROHIT ANANT', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('6', '02CE1005', '6', 'C', 'BHERE TUSHAR  KANHU', '', 'NOV''09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('11', '02CE1010', '5', 'C', 'DIXIT ABHIJIT BRAHMKUMAR', '', 'MAY-11', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+('47', NULL, NULL, 'CE', 'SUDRIK PRAMOD RAMESHRAO', '', 'NOV\'09', '123456', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'),
+('6506', NULL, NULL, 'IT', 'RANAWARE SATYAJIT SHIVAJIRAO', '', 'NOV-13', '123456', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('552', NULL, NULL, 'CE', 'MHATRE MAYURESH MADHUKAR', '', 'MAY-15', '123456', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('8067', '00CE166', '6', 'CE', 'SUDRIK PRAMOD RAMESHRAO', '', 'MAY-10', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', '0', '0', '0', '0', '0', '0'),
+('8062', '00CE194', '6', 'CE', 'MALGAONKAR JAYESH PANDURANG', '', 'MAY-10', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('26', '00CE224', '6', 'CE', 'KHOBRAGADE NITIN ARUN', '', 'NOV\'09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('1103', '01IN010', '3', 'IN', 'GAVANDI TEJAS SUHAS', '', 'NOV\'09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('1120', '01IN021', '5', 'IN', 'NINGAVALE ROHIT ANANT', '', 'NOV\'09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('6', '02CE1005', '6', 'CE', 'BHERE TUSHAR  KANHU', '', 'NOV\'09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('1072', '00EE128', '5', 'ET', 'THANIYAT ASHISH MURALI', '', 'NOV\'09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('1159', '00IT162', '5', 'IT', 'SAWANT TUSHAR ANIL', '', 'NOV\'09', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('6057', '01EE024', '5', 'ET', 'KANINDE SATYASHIL GOVIND', '', 'MAY-10', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('4927', '01ET126', '7', 'EX', 'SURI ASEEM VINOD', '', 'NOV-15', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('1122', '02CE1010', '5', 'CE', 'DIXIT ABHIJIT BRAHMKUMAR', '', 'MAY-11', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('2211', '15CE7033', '2', 'CE', 'BHUJBAL ASHUTOSH SANJEEV', '', 'MAY-16', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('4411', '15CE7033', '4', 'CE', 'BHUJBAL ASHUTOSH SANJEEV', '', 'MAY-17', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -695,6 +686,7 @@ ALTER TABLE `student_theory_mask`
 --
 ALTER TABLE `student_theory_unmask`
   ADD PRIMARY KEY (`code`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
