@@ -150,7 +150,7 @@ if(isset($_POST['LOGIN'])){
 		$_SESSION['sem']=$q;
 		$_SESSION['pattern']=$z;
     $_SESSION['rollno']=$r;
-	header("Location: marksheet_template.php");
+	header("Location: dummy_marksheet_template.php");
 		}
 		else
 		{
