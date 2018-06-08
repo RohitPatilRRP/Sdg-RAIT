@@ -153,18 +153,18 @@ while($row = mysqli_fetch_array($query_student)){
     
 
       <?php
-    while( ($row = mysqli_fetch_array($query_student)) || ($course_row = mysqli_fetch_array($query_course)) ){
+    while( ($row = mysqli_fetch_array($query_marks)) && ($course_row = mysqli_fetch_array($query_course)) ){
 
       ?>
     <tr>
     <td><?php echo $course_row['subject']; ?></td>
     <td><?php echo $course_row['coursecredits_th'];?></td>
     <td><?php echo $course_row['coursecredits_tw']?></td>
-    <td><?php echo $row['grade_ese']; ?></td>
-    <td><?php echo $row['grade_oralprac']; ?> </td>
-    <td><?php echo $row['grade_oral']; ?> </td>
-    <td><?php echo $row['grade_ia']; ?> </td>
-    <td><?php echo $row['grade_tw']; ?> </td>
+    <td><?php echo $row['ese']; ?></td>
+    <td><?php echo $row['op']; ?> </td>
+    <td><?php echo $row['oral']; ?> </td>
+    <td><?php echo $row['ia']; ?> </td>
+    <td><?php echo $row['tw']; ?> </td>
     <td><?php echo $row['overall_ese']; ?> </td>
     <td><?php echo $row['overall_tw']; ?> </td>
     <td><?php echo $row['creditsearned_th']; ?> </td>
@@ -175,7 +175,8 @@ while($row = mysqli_fetch_array($query_student)){
     <td><?php echo $row['cxg_tw']; ?> </td> 
     </tr>
     
-   <?php }   ?>
+   <?php }
+   ?>
   </tbody>
 </table>
 
