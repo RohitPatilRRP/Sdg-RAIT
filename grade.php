@@ -31,8 +31,11 @@
 			# code...
 			return "P";
 		}
-		else{
+		elseif($res<40){
 			return "F";
+		}
+		else{
+			return "ABS";
 		}
 	}
 
