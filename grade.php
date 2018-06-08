@@ -2,6 +2,7 @@
  function eighty($x)
 	{
 		# code...
+		if(is_numeric($x)){
 		$res = ($x/80)*100;
 		if ($res >=80 ) {
 			# code...
@@ -35,8 +36,28 @@
 			return "F";
 		}
 		else{
-			return "ABS";
+			return "-";
 		}
 	}
+	else{
+		return "-";
+	}
+}
 
 ?>
+
+
+
+<!-- denominators to be taken
+
+20 ia
+25 tw,op,oral
+
+theory:
+40
+50
+60
+75
+80
+100
+ -->
