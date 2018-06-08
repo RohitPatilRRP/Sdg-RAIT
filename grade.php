@@ -4,7 +4,55 @@
 		# code...
 		if(is_numeric($x)){
 		$res = ($x/80)*100;
-		if ($res >=80 ) {
+		return(grade($res));
+
+	}
+	else
+	{
+		return "-";
+	}
+
+}
+
+function twenty($x){
+	if(is_numeric($x)){
+		$res = ($x/20)*100;
+		return(grade($res));
+
+	}
+	else
+	{
+		return "-";
+	}
+}
+
+function twentyfive($x){
+	if(is_numeric($x)){
+		$res = ($x/25)*100;
+		return(grade($res));
+
+	}
+	else
+	{
+		return "-";
+	}
+}
+
+function hundred($x){
+	if(is_numeric($x)){
+		$res = $x;
+		return(grade($res));
+
+	}
+	else
+	{
+		return "-";
+	}
+}
+
+function grade($res){
+
+	if ($res >=80 ) {
 			# code...
 			return "O";
 		}
@@ -38,11 +86,9 @@
 		else{
 			return "-";
 		}
-	}
-	else{
-		return "-";
-	}
+
 }
+
 
 ?>
 

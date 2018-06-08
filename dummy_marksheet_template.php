@@ -162,12 +162,12 @@ while($row = mysqli_fetch_array($query_student)){
     <td><?php echo $course_row['coursecredits_th'];?></td>
     <td><?php echo $course_row['coursecredits_tw']?></td>
     <td><?php echo eighty($row['ese']); ?></td>
-    <td><?php echo eighty($row['op']); ?> </td>
-    <td><?php echo $row['oral']; ?> </td>
-    <td><?php echo eighty($row['ia']); ?> </td>
-    <td><?php echo $row['tw']; ?> </td>
-    <td><?php echo ($row['ese'] + $row['ia'] )?></td>
-    <td><?php echo $row['tw']; ?></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    <td><?php echo twentyfive($row['op']); ?> </td>
+    <td><?php echo twentyfive($row['oral']); ?> </td>
+    <td><?php echo twenty($row['ia']); ?> </td>
+    <td><?php echo twentyfive($row['tw']); ?> </td>
+    <td><?php echo hundred(($row['ese'] + $row['ia'] ))?></td>
+    <td><?php echo twentyfive($row['tw']); ?></td><td></td><td></td><td></td><td></td><td></td><td></td>
     </tr>
     
    <?php }
