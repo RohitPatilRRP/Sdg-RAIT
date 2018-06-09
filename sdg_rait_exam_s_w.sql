@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2018 at 05:54 PM
+-- Generation Time: Jun 09, 2018 at 09:54 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -45,11 +45,11 @@ CREATE TABLE `course_table` (
   `pattern` varchar(30) DEFAULT NULL,
   `Sem` varchar(30) DEFAULT NULL,
   `sub_name` varchar(30) DEFAULT NULL,
-  `sub_code` varchar(30) DEFAULT NULL,
+  `sub_code` varchar(30) NOT NULL,
   `lect/week` varchar(30) DEFAULT NULL,
   `pracweek` varchar(30) DEFAULT NULL,
   `twmax` varchar(30) DEFAULT NULL,
-  `tw_min` int(30) DEFAULT NULL,
+  `tw_min` varchar(30) DEFAULT NULL,
   `th_max` varchar(30) DEFAULT NULL,
   `th_min` varchar(30) DEFAULT NULL,
   `prac_max` varchar(30) DEFAULT NULL,
@@ -57,23 +57,24 @@ CREATE TABLE `course_table` (
   `oral_max` varchar(30) DEFAULT NULL,
   `oral_min` varchar(30) DEFAULT NULL,
   `op_max` varchar(30) DEFAULT NULL,
-  `op_min` varchar(30) DEFAULT NULL
+  `op_min` varchar(30) DEFAULT NULL,
+  `cc_th` varchar(30) NOT NULL,
+  `cc_tw` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `course_table`
+--
 
-INSERT INTO `course_table`(`Branch`, `pattern`, `Sem`, `sub_name`, `sub_code`, `lect/week`, `pracweek`, `twmax`, `tw_min`, `th_max`, `th_min`, `prac_max`, `prac_min`, `oral_max`, `oral_min`, `op_max`, `op_min`, `cc_th`, `cc_tw`) VALUES ('CE','REV2012','4','AOA','400','','','','','','','','','','','','','4','1'),
-('CE','REV2012','4','M4','401','','','','','','','','','','','','','4','1'),
-('CE','REV2012','4','CG','402','','','','','','','','','','','','','3','1'),
-('CE','REV2012','4','COA','403','','','','','','','','','','','','','4','1'),
-('CE','REV2012','4','DBMS','404','','','','','','','','','','','','','4','1'),
-('CE','REV2012','4','TCS','405','','','','','','','','','','','','','4','-');
+INSERT INTO `course_table` (`Branch`, `pattern`, `Sem`, `sub_name`, `sub_code`, `lect/week`, `pracweek`, `twmax`, `tw_min`, `th_max`, `th_min`, `prac_max`, `prac_min`, `oral_max`, `oral_min`, `op_max`, `op_min`, `cc_th`, `cc_tw`) VALUES
+('CE', 'REV2012', '4', 'AOA', '400', '', '', '', '', '', '', '', '', '', '', '', '', '4', '1'),
+('CE', 'REV2012', '4', 'M4', '401', '', '', '', '', '', '', '', '', '', '', '', '', '4', '1'),
+('CE', 'REV2012', '4', 'CG', '402', '', '', '', '', '', '', '', '', '', '', '', '', '3', '1'),
+('CE', 'REV2012', '4', 'COA', '403', '', '', '', '', '', '', '', '', '', '', '', '', '4', '1'),
+('CE', 'REV2012', '4', 'DBMS', '404', '', '', '', '', '', '', '', '', '', '', '', '', '4', '1'),
+('CE', 'REV2012', '4', 'TCS', '405', '', '', '', '', '', '', '', '', '', '', '', '', '4', '-');
+
 -- --------------------------------------------------------
-
-INSERT INTO `my`(`seat_no`, `sub_code`, `s1_ese`, `s1_op`, `s1_or`, `s1_ia`, `s1_tw`, `s2_ese`, `s2_op`, `s2_or`, `s2_ia`, `s2_tw`, `s3_ese`, `s3_op`, `s3_or`, `s3_ia`, `s3_tw`, `s4_ese`, `s4_op`, `s4_or`, `s4_ia`, `s4_tw`, `s5_ese`, `s5_op`, `s5_or`, `s5_ia`, `s5_tw`, `s6_ese`, `s6_op`, `s6_or`, `s6_ia`, `s6_tw`) VALUES ('4000','400','50','20','-','16','20','80','-','-','20','25','75','20','-','15','20','60','-','20','20','20','55','25','-','15','20','80','-','-','20','-'),
-('4001','400','50','20','-','16','20','80','-','-','20','25','75','20','-','15','20','60','-','20','20','20','55','25','-','15','20','80','-','-','20','-'),
-('4002','400','50','20','-','16','20','80','-','-','20','25','75','20','-','15','20','60','-','20','20','20','55','25','-','15','20','80','-','-','20','-'),
-('4003','400','50','20','-','16','20','80','-','-','20','25','75','20','-','15','20','60','-','20','20','20','55','25','-','15','20','80','-','-','20','-'),
-('4004','400','50','20','-','16','20','80','-','-','20','25','75','20','-','15','20','60','-','20','20','20','55','25','-','15','20','80','-','-','20','-');
 
 --
 -- Table structure for table `course_table_cbgs`
@@ -402,6 +403,81 @@ INSERT INTO `course_table_rev` (`branch`, `pattern`, `sem`, `subject`, `Sub_code
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `final`
+--
+
+CREATE TABLE `final` (
+  `seat` varchar(30) DEFAULT NULL,
+  `subcode` varchar(30) DEFAULT NULL,
+  `ese` varchar(30) DEFAULT NULL,
+  `op` varchar(30) DEFAULT NULL,
+  `oral` varchar(30) DEFAULT NULL,
+  `ia` varchar(30) DEFAULT NULL,
+  `tw` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `final`
+--
+
+INSERT INTO `final` (`seat`, `subcode`, `ese`, `op`, `oral`, `ia`, `tw`) VALUES
+('4000', '400', '50', '20', '-', '16', '20'),
+('4000', '401', '50', '-', '-', '16', '20'),
+('4000', '402', '50', '20', '-', '16', '20'),
+('4000', '403', '50', '-', '20', '16', '20'),
+('4000', '404', '50', '20', '-', '16', '20'),
+('4000', '405', '50', '-', '-', '16', '-'),
+('4001', '400', '50', '20', '-', '16', '20'),
+('4001', '401', '50', '-', '-', '16', '20'),
+('4001', '402', '50', '20', '-', '16', '20'),
+('4001', '403', '50', '-', '20', '16', '20'),
+('4001', '404', '50', '20', '-', '16', '20'),
+('4001', '405', '50', '-', '-', '16', '-');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `my`
+--
+
+CREATE TABLE `my` (
+  `seat_no` varchar(30) NOT NULL,
+  `sub_code` varchar(30) NOT NULL,
+  `s1_ese` varchar(30) NOT NULL,
+  `s1_op` varchar(30) NOT NULL,
+  `s1_or` varchar(30) NOT NULL,
+  `s1_ia` varchar(30) NOT NULL,
+  `s1_tw` varchar(30) NOT NULL,
+  `s2_ese` varchar(30) NOT NULL,
+  `s2_op` varchar(30) NOT NULL,
+  `s2_or` varchar(30) NOT NULL,
+  `s2_ia` varchar(30) NOT NULL,
+  `s2_tw` varchar(30) NOT NULL,
+  `s3_ese` varchar(30) NOT NULL,
+  `s3_op` varchar(30) NOT NULL,
+  `s3_or` varchar(30) NOT NULL,
+  `s3_ia` varchar(30) NOT NULL,
+  `s3_tw` varchar(30) NOT NULL,
+  `s4_ese` varchar(30) NOT NULL,
+  `s4_op` varchar(30) NOT NULL,
+  `s4_or` varchar(30) NOT NULL,
+  `s4_ia` varchar(30) NOT NULL,
+  `s4_tw` varchar(30) NOT NULL,
+  `s5_ese` varchar(30) NOT NULL,
+  `s5_op` varchar(30) NOT NULL,
+  `s5_or` varchar(30) NOT NULL,
+  `s5_ia` varchar(30) NOT NULL,
+  `s5_tw` varchar(30) NOT NULL,
+  `s6_ese` varchar(30) NOT NULL,
+  `s6_op` varchar(30) NOT NULL,
+  `s6_or` varchar(30) NOT NULL,
+  `s6_ia` varchar(30) NOT NULL,
+  `s6_tw` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student_cgpi`
 --
 
@@ -508,7 +584,8 @@ INSERT INTO `student_final_marksheet` (`seat`, `Roll_no`, `Sem`, `branch`, `full
 ('4927', '01ET126', '7', 'EX', 'SURI ASEEM VINOD', '', 'NOV-15', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 ('1122', '02CE1010', '5', 'CE', 'DIXIT ABHIJIT BRAHMKUMAR', '', 'MAY-11', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 ('2211', '15CE7033', '2', 'CE', 'BHUJBAL ASHUTOSH SANJEEV', '', 'MAY-16', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('4411', '15CE7033', '4', 'CE', 'BHUJBAL ASHUTOSH SANJEEV', '', 'MAY-17', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+('4411', '15CE7033', '4', 'CE', 'BHUJBAL ASHUTOSH SANJEEV', '', 'MAY-17', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+('4000', '15CE1044', '4', 'CE', 'Rohit Patil', 'REV2012', 'MAY17', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -650,7 +727,7 @@ ALTER TABLE `allocate_seat`
 -- Indexes for table `course_table`
 --
 ALTER TABLE `course_table`
-  ADD PRIMARY KEY (`Branch`);
+  ADD PRIMARY KEY (`sub_code`);
 
 --
 -- Indexes for table `course_table_cbgs`
@@ -663,6 +740,12 @@ ALTER TABLE `course_table_cbgs`
 --
 ALTER TABLE `course_table_rev`
   ADD UNIQUE KEY `branch` (`branch`,`pattern`,`sem`,`subject`);
+
+--
+-- Indexes for table `my`
+--
+ALTER TABLE `my`
+  ADD PRIMARY KEY (`sub_code`,`seat_no`);
 
 --
 -- Indexes for table `student_cgpi`
