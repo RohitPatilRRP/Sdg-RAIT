@@ -121,7 +121,7 @@ Pattern: <input type="text" name="pattern" id="pattern"><br/>
 <div>
 <?php
 if(isset($_POST['LOGIN'])){
-  	$r=$_POST['rollno'];
+  	$r="15CE1044";//$_POST['rollno'];
 	$q = $_POST['sem'];
 	$z = $_POST['pattern'];
 	$b= $_POST['branch'];

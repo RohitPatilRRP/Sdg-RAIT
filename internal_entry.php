@@ -201,7 +201,7 @@ $OVERALL_TW = $_POST['overall_tw'];
     
     
 
-    $query = "INSERT INTO sc_400 (`Roll_no`, `full_name`, `ESE`, `OP`, `ORAL`, `IA`, `TW`, `OVERALL_ESE`, `OVERALL_TW`) VALUES ('$Roll_no','$Name','$ESE','$OP','$ORAL','$IA','$TW','$OVERALL_ESE','$OVERALL_TW')";
+    $query = "INSERT INTO sc_400 (`Roll_no`, `full_name`, `ESE`, `OP`, `ORAL`, `IA`, `TW`, `OVERALL_ESE`, `OVERALL_TW`) VALUES ('$Roll_no','$Name','$ESE','$OP','$ORAL','$IA','$TW','$OVERALL_ESE','$OVERALL_TW');";
     
     $result = mysqli_query($db,$query);
     
